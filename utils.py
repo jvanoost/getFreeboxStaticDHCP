@@ -22,6 +22,7 @@ app_name = 'SaveStaticIp'
 app_version = '1'
 device_name = socket.gethostname()
 
+
 def fancy_print(data):
 	print(json.dumps(data,indent=2,separators=(',', ': ')))
 
@@ -36,6 +37,7 @@ def connexion_post(method,data=None,session=None):
 
 def connexion_get(method,session=None):
 	url = "http://mafreebox.freebox.fr/api/v8/"+method
+	print("Session:", session)
 	if session is None:
 		return json.loads(requests.get(url).text)
 	else:
@@ -101,7 +103,7 @@ def mksession():
 	}
 	
 	content = connexion_post("login/session/",data, s)
-	#fancy_print(content)
+	fancy_print(content)
 	if content["success"] is True:
 		print("Login 2/2 Ok")
 	else:
@@ -140,3 +142,15 @@ def addStaticIp(session, mac, ip, comment):
 
 def saveJsonToFile(fileName, data):
 	open("{}.json".format(fileName), 'w').write(str(data))
+
+
+
+############################################
+############################################
+
+if is_authorization_granted() is not True:
+	print("Nous n'avons pas encore de session enregistrée, approchez vous de votre Freebox pour valider l'enregistrement")
+	register()
+else:
+	print("Notre appli est déjà connue, pas besoin de s'engegistrer")
+	token = open(APP_TOKEN_FILE, 'r').read()
