@@ -9,25 +9,20 @@ import datetime
 import socket
 import os
 
-fbx_url = "http://mafreebox.freebox.fr/api/v8/"
-
-APP_TOKEN_FILE = '.app_token'
+import config
 
 
 token=''
 id = ''
 
-app_id = 'fr.freebox.savestaticip'
-app_name = 'SaveStaticIp'
-app_version = '1'
-device_name = socket.gethostname()
+
 
 
 def fancy_print(data):
 	print(json.dumps(data,indent=2,separators=(',', ': ')))
 
 def connexion_post(method,data=None,session=None):
-	url = "http://mafreebox.freebox.fr/api/v8/"+method
+	url = FBX_URL + method
 	if data: 
 		data = json.dumps(data)
 		if session is None:
@@ -36,7 +31,7 @@ def connexion_post(method,data=None,session=None):
 			return json.loads(session.post(url, data=data).text)
 
 def connexion_get(method,session=None):
-	url = "http://mafreebox.freebox.fr/api/v8/"+method
+	url = FBX_URL + method
 	print("Session:", session)
 	if session is None:
 		return json.loads(requests.get(url).text)
@@ -47,7 +42,7 @@ def is_authorization_granted():
 	"""
 		Return True if an authorization has already been granted on the freebox.
 	"""
-	return True if os.path.isfile(APP_TOKEN_FILE) else False
+	return True if APP_TOKEN_FILE != '' else False
 
 def register():
 	global token,id, app_id, app_name, app_version, device_name

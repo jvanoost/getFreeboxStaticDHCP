@@ -1,6 +1,8 @@
 #private token
 .app_token
 
+config.py
+
 # saves json
 *.json
 
