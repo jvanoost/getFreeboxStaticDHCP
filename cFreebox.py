@@ -19,7 +19,7 @@ class cFreebox:
         self.listDevices = []
         if self.is_authorization_granted() is not True:
             print("Nous n'avons pas encore de session enregistrée, approchez vous de votre Freebox pour valider l'enregistrement")
-            self.register()
+            self.register(config.id, config.app_id, config.app_name, config.app_version, config.device_name)
         else:
             print("Notre appli est déjà connue, pas besoin de s'engegistrer")
             self.token = config.APP_TOKEN
