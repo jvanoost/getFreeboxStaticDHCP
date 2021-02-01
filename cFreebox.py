@@ -79,7 +79,7 @@ class cFreebox:
         password = password_bin.hexdigest()
 
         data={
-            "app_id": 'fr.freebox.savestaticip',
+            "app_id": config.app_id,
             #"app_version":'1',
             "password": password
         }
