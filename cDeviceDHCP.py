@@ -1,3 +1,4 @@
+import utils
 
 class cDeviceDHCP:
 
@@ -14,3 +15,17 @@ class cDeviceDHCP:
         self.ipAddress = ipAddress
         self.comm = comm
         self.typeDevice = typeDevice
+
+    def addStaticIp(self, session):
+        data ={
+            "ip": self.ipAddress,
+            "mac": self.macAddress,
+            "comment": self.comm
+        }
+        content = utils.connexion_post("dhcp/static_lease/", data, session)
+        if content["success"] is True:
+            return content["result"]
+        else:
+            print('Erreur ajout de bail statique')
+            print(content["msg"])
+            return False

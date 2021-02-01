@@ -2,6 +2,7 @@
 .app_token
 
 config.py
+datas/
 
 # saves json
 *.json

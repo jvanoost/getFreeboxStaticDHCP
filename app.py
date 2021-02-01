@@ -5,6 +5,7 @@ from cFreebox import *
 
 maFreebox = cFreebox()
 
+donnees = maFreebox.getAllPortForwarding()
 
 
 #test add a static IP
