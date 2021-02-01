@@ -23,6 +23,7 @@ class cFreebox:
         else:
             print("Notre appli est déjà connue, pas besoin de s'engegistrer")
             self.token = config.APP_TOKEN
+        if config.DEBUG == True : print("token : ", self.token)
         self.mksession()
 
     def is_authorization_granted(self):
