@@ -9,7 +9,7 @@ Save and push :
 - Wifi guest (push the remaining time)
 
 ## Install
-Make a copy of the config.sample.py and rename it config.py
+Make a copy of the config.sample.py, rename it config.py and modify the settings as you want
 
 Before Launching a save, go to https://mafreebox.freebox.fr/
 then go to "Gestion des accès", then "Application", find the name of the app (by default `SaveFreebox`), and allow "Modification des réglages de la Freebox"
