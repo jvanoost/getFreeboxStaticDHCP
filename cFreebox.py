@@ -137,7 +137,10 @@ class cFreebox:
         if content["success"] is True:
             # Save to a json file
             now = datetime.now()
-            utils.saveJsonToFile("datas/portForwarding-" + now.strftime("%Y%m%d%H%M%S"), content["result"])
+            if content['result']:
+                utils.saveJsonToFile("datas/portForwarding-" + now.strftime("%Y%m%d%H%M%S"), content["result"])
+            else:
+                print("Pas de résultats")
 
             return content["result"]
         else:
@@ -177,13 +180,16 @@ class cFreebox:
     ###################################################################################    
     ###################################################################################    
     def getAllWifiGuest(self):
-        content = utils.connexion_get("wifi/customkey/", session = self.session)
+        content = utils.connexion_get("wifi/custom_key/", session = self.session)
         
         #fancy_print(content)
         if content["success"] is True:
             # Save to a json file
             now = datetime.now()
-            utils.saveJsonToFile("datas/WifiGuest-" + now.strftime("%Y%m%d%H%M%S"), content["result"])
+            if content['result']:
+                utils.saveJsonToFile("datas/WifiGuest-" + now.strftime("%Y%m%d%H%M%S"), content["result"])
+            else:
+                print("Pas de résultats")
 
             return content["result"]
         else:
@@ -209,7 +215,7 @@ class cFreebox:
                     "duration":fw['remaining'],
                     "access_type":fw['params']['access_type']
                 }
-                content = utils.connexion_post("wifi/customkey/", data, self.session)
+                content = utils.connexion_post("wifi/custom_key/", data, self.session)
                 if content["success"] is True:
                     return content["result"]
                 else:
@@ -226,7 +232,10 @@ class cFreebox:
         if content["success"] is True:
             # Save to a json file
             now = datetime.now()
-            utils.saveJsonToFile("datas/MacFilter-" + now.strftime("%Y%m%d%H%M%S"), content["result"])
+            if content["result"]:
+                utils.saveJsonToFile("datas/MacFilter-" + now.strftime("%Y%m%d%H%M%S"), content["result"])
+            else:
+                print("Pas de résultats")
 
             return content["result"]
         else:
