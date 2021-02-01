@@ -14,6 +14,7 @@ class cFreebox:
     listDevices = []
     token = ''
     session = requests.session()
+    connected = False
 
     def __init__(self):
         self.listDevices = []
@@ -92,6 +93,7 @@ class cFreebox:
             return False
         s.headers = {"X-Fbx-App-Auth": content["result"]["session_token"]}
         self.session = s
+        self.connected = True
         return s
     
     ###################################################################################    

@@ -1,5 +1,11 @@
 from cFreebox import *
 
+print('#########################################################')
+print('#                    Save My Freebox                    #')
+print('#########################################################')
+print('')
+print('')
+
 maFreebox = cFreebox()
 
 ##############################################
@@ -46,13 +52,10 @@ def menu():
         menu()
 ##############################################
 
-print('#########################################################')
-print('#                    Save My Freebox                    #')
-print('#########################################################')
 print('')
 print('')
 
-menu()
+if maFreebox.connected == True : menu()
 
 #test add a static IP
 #res = addStaticIp(s, "96:C6:30:58:B2:80", "192.168.1.3", "RedMiNote9Pro-Lu")
