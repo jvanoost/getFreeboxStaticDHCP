@@ -31,7 +31,7 @@ class cFreebox:
         """
             Return True if an authorization has already been granted on the freebox.
         """
-        return True if config.APP_TOKEN != '' else False
+        return True if hasattr(config, 'APP_TOKEN') else False
 
     def register(self, id, app_id, app_name, app_version, device_name):
 
@@ -55,7 +55,7 @@ class cFreebox:
             utils.fancy_print(content)
             app_id=str(content["result"]["track_id"])
 
-            open("config.py", 'w').write("APP_TOKEN='" + self.token + "'")
+            open("config.py", 'a').write("APP_TOKEN='" + self.token + "'")
 
             return self.token
         else:
