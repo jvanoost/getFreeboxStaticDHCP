@@ -21,7 +21,7 @@ def menu():
     print('')
     print('Ok faisons ça...')
     print('')
-    if choice in ['1', '2', '3', '4', '5', '6', '7', '8']:
+    if choice in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
         if choice == '1':
             maFreebox.getAllStaticIp()
         if choice == '2':
