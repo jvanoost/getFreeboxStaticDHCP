@@ -1,6 +1,12 @@
 #private token
 .app_token
 
+config.py
+datas/*.json
+
+# saves json
+*.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
