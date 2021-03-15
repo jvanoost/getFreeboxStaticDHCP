@@ -128,7 +128,7 @@ class cFreebox:
         with open(fileToLoad, 'r') as datas:
             datas_dict = json.load(datas)
             
-            for device in datas_dict["result"]:
+            for device in datas_dict:
                 self.addDeviceDHCP(device['hostname'], device['mac'], device['ip'], device['comment'], '')
 
     ###################################################################################    
@@ -161,7 +161,7 @@ class cFreebox:
         with open(fileToLoad, 'r') as datas:
             datas_dict = json.load(datas)
             
-            for fw in datas_dict["result"]:
+            for fw in datas_dict:
                 data ={
                     "enabled": fw['enabled'],
                     "comment": fw['comment'],
