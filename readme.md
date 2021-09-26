@@ -10,6 +10,8 @@ Save and push :
 
 ## Install
 Make a copy of the config.sample.py, rename it config.py and modify the settings as you want
+execute app.py under python3
+first time valid on freebox with yes
 
 Before Launching a save, go to https://mafreebox.freebox.fr/
 then go to "Gestion des accès", then "Application", find the name of the app (by default `SaveFreebox`), and allow "Modification des réglages de la Freebox"
