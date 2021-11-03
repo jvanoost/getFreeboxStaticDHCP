@@ -17,3 +17,6 @@ Before Launching a save, go to https://mafreebox.freebox.fr/
 then go to "Gestion des accès", then "Application", find the name of the app (by default `SaveFreebox`), and allow "Modification des réglages de la Freebox"
 
 Then you can use the app normally
+
+# Licence
+[Licence Beerware](https://fr.wikipedia.org/wiki/Beerware)
